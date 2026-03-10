@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Mahamad Abdulah — Solar Design Engineer at Panasonic India. Expert in Solar EPC, AutoCAD, PVsyst, SolarLabs. Circle of Excellence Award winner."/>
+<meta name="keywords" content="Solar Design Engineer, Solar EPC, AutoCAD, PVsyst, SolarLabs, Panasonic India, Mahamad Abdulah, Bengaluru"/>
+<meta property="og:title" content="Mahamad Abdulah — Solar Design Engineer"/>
+<meta property="og:description" content="Solar EPC Engineer at Panasonic India. Circle of Excellence Award Winner."/>
+<title>Mahamad Abdulah — Solar Design Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════════════════
+   CYBER SUNSET PALETTE
+   ● #FF6B35  Burnt Orange   — primary
+   ● #FFD23F  Electric Yellow — accent
+   ● #06FFA5  Neon Mint      — secondary
+   ● #4361EE  Electric Blue  — tertiary
+════════════════════════════════════════════════ */
+:root{
+  --c1:#FF6B35; --c2:#FFD23F; --c3:#06FFA5; --c4:#4361EE;
+  --bg:#07060E; --bg2:#0C0B16; --card:#11101E;
+  --border:rgba(255,107,53,.14); --text:#F2EEF8; --sub:#8A829C;
+  --r:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;cursor:none;line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+
+/* ════════ CURSOR ════════ */
+#cur,#cur-ring{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);}
+#cur{width:10px;height:10px;background:var(--c1);z-index:10001;transition:width .15s,height .15s,background .2s;}
+#cur-ring{width:36px;height:36px;border:1.5px solid rgba(255,107,53,.5);z-index:10000;transition:width .22s,height .22s,border-color .22s;}
+body.ch #cur{width:14px;height:14px;background:var(--c2);}
+body.ch #cur-ring{width:52px;height:52px;border-color:rgba(255,210,63,.6);}
+@media(pointer:coarse){#cur,#cur-ring{display:none;}body{cursor:auto;}}
+
+/* ════════ GRAIN ════════ */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.28;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");}
+
+/* ════════ PROGRESS BAR (page load) ════════ */
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3));z-index:9999;transition:width .2s;}
+
+/* ════════ NAV ════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:600;display:flex;align-items:center;justify-content:space-between;padding:22px 64px;transition:padding .4s,background .4s,border-color .4s;}
+nav.stuck{background:rgba(7,6,14,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);padding:13px 64px;}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.85rem;letter-spacing:.12em;color:var(--c1);text-decoration:none;line-height:1;display:block;}
+.logo span{font-family:'JetBrains Mono',monospace;font-size:.53rem;letter-spacing:.22em;color:var(--c3);display:block;margin-top:1px;}
+.nav-links{display:flex;gap:26px;list-style:none;align-items:center;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sub);text-decoration:none;transition:color .2s;position:relative;padding-bottom:5px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--c1),var(--c2));transform:scaleX(0);transition:transform .25s;transform-origin:left;}
+.nav-links a:hover,.nav-links a.active{color:var(--c2);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-badge{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.14em;color:var(--c3);background:rgba(6,255,165,.07);border:1px solid rgba(6,255,165,.18);padding:7px 15px;border-radius:30px;white-space:nowrap;}
+.nb-dot{width:7px;height:7px;border-radius:50%;background:var(--c3);flex-shrink:0;animation:blink 1.8s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+
+/* hamburger */
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none;}
+.hbg span{display:block;width:24px;height:2px;background:var(--c1);border-radius:2px;transition:transform .3s,opacity .3s;}
+.hbg.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hbg.open span:nth-child(2){opacity:0;}
+.hbg.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+/* mobile overlay */
+#mob{display:none;position:fixed;inset:0;background:rgba(7,6,14,.98);z-index:590;flex-direction:column;align-items:center;justify-content:center;gap:24px;}
+#mob.open{display:flex;}
+#mob a{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:.08em;color:var(--sub);text-decoration:none;transition:color .2s;}
+#mob a:hover{color:var(--c1);}
+#mob-x{position:absolute;top:22px;right:26px;font-size:1.5rem;background:none;border:none;color:var(--sub);cursor:pointer;padding:4px 8px;}
+
+/* ════════ HERO ════════ */
+#home{min-height:100vh;display:flex;align-items:center;padding:130px 64px 90px;position:relative;overflow:hidden;}
+.h-bg{position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 70% at 80% 110%,rgba(255,107,53,.09) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 60%,rgba(67,97,238,.07) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 55% at 50% -5%,rgba(255,210,63,.05) 0%,transparent 55%),
+    linear-gradient(160deg,#07060E 0%,#0C0B16 100%);}
+.h-dots{position:absolute;inset:0;z-index:0;background-image:radial-gradient(circle,rgba(255,107,53,.15) 1px,transparent 1px);background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 80%);mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 80%);}
+
+/* decorative rings */
+.dring{position:absolute;border-radius:50%;border:1px solid;pointer-events:none;z-index:1;}
+.dr1{width:640px;height:640px;right:-130px;bottom:-190px;border-color:rgba(255,107,53,.08);}
+.dr2{width:460px;height:460px;right:-45px;bottom:-85px;border-color:rgba(255,210,63,.06);}
+.dr3{width:280px;height:280px;right:55px;bottom:35px;border-color:rgba(6,255,165,.05);}
+
+/* sun orb */
+.h-orb{position:absolute;right:218px;bottom:196px;width:112px;height:112px;z-index:2;}
+.h-orb-core{position:absolute;inset:20px;border-radius:50%;
+  background:radial-gradient(circle,#FFE594,#FF6B35 50%,rgba(255,107,53,.05));
+  box-shadow:0 0 35px rgba(255,107,53,.9),0 0 70px rgba(255,107,53,.5),0 0 130px rgba(255,210,63,.2);
+  animation:orbBreath 3.5s ease-in-out infinite;}
+@keyframes orbBreath{0%,100%{box-shadow:0 0 35px rgba(255,107,53,.9),0 0 70px rgba(255,107,53,.5),0 0 130px rgba(255,210,63,.2);}50%{box-shadow:0 0 55px rgba(255,107,53,1),0 0 100px rgba(255,107,53,.65),0 0 180px rgba(255,210,63,.3);}}
+.h-ray{position:absolute;top:50%;left:50%;width:52%;height:1px;transform-origin:0 50%;background:linear-gradient(to right,rgba(255,107,53,.4),transparent);}
+
+/* solar panel deco */
+.h-panel{position:absolute;right:56px;bottom:56px;width:430px;height:268px;z-index:2;opacity:.17;transform:perspective(900px) rotateX(22deg) rotateY(-14deg);}
+.h-panel-inner{width:100%;height:100%;background:linear-gradient(135deg,rgba(67,97,238,.4),rgba(6,255,165,.2));border:1px solid rgba(67,97,238,.4);border-radius:6px;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr);gap:4px;padding:4px;}
+.pc{background:rgba(15,20,50,.85);border-radius:3px;transition:background .5s,box-shadow .5s;}
+.pc.on{background:rgba(35,55,130,.9);box-shadow:inset 0 0 10px rgba(67,97,238,.25);}
+
+/* time badge */
+#tbadge{position:absolute;top:108px;right:64px;z-index:5;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--sub);background:rgba(7,6,14,.72);border:1px solid var(--border);padding:8px 16px;border-radius:var(--r);backdrop-filter:blur(12px);display:flex;align-items:center;gap:9px;}
+.tb-dot{width:6px;height:6px;border-radius:50%;background:var(--c1);animation:blink 1.8s infinite;}
+
+/* hero content */
+.h-content{position:relative;z-index:5;max-width:680px;}
+.h-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--c2);display:flex;align-items:center;gap:14px;margin-bottom:26px;animation:rUp .8s both;}
+.h-eyebrow::before{content:'';width:42px;height:1px;background:linear-gradient(90deg,var(--c1),var(--c2));}
+.h-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,9.5vw,8.5rem);line-height:.88;letter-spacing:.03em;margin-bottom:18px;animation:rUp .8s .1s both;}
+.h-name .ln1{display:block;color:#fff;}
+.h-name .ln2{display:block;background:linear-gradient(120deg,var(--c1),var(--c2) 50%,#FF9A5C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(255,107,53,.4));}
+.h-role{font-family:'JetBrains Mono',monospace;font-size:.88rem;color:var(--c3);letter-spacing:.12em;margin-bottom:6px;animation:rUp .8s .18s both;}
+.h-sub{font-size:1rem;color:var(--sub);margin-bottom:24px;animation:rUp .8s .24s both;min-height:1.6rem;}
+.h-sub strong{color:var(--text);}
+#typer{color:var(--c2);border-right:2px solid var(--c2);padding-right:2px;animation:caret .8s step-end infinite;}
+@keyframes caret{0%,100%{border-color:var(--c2)}50%{border-color:transparent}}
+.h-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px;animation:rUp .8s .3s both;}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;padding:5px 13px;border-radius:20px;}
+.co{background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.28);color:var(--c1);}
+.cy{background:rgba(255,210,63,.08);border:1px solid rgba(255,210,63,.24);color:var(--c2);}
+.cg{background:rgba(6,255,165,.07);border:1px solid rgba(6,255,165,.22);color:var(--c3);}
+.cb{background:rgba(67,97,238,.08);border:1px solid rgba(67,97,238,.22);color:var(--c4);}
+.h-bio{font-size:1rem;color:#7A7090;line-height:1.88;max-width:490px;margin-bottom:36px;animation:rUp .8s .36s both;}
+.h-ctas{display:flex;gap:14px;flex-wrap:wrap;animation:rUp .8s .42s both;}
+.btn-p{background:linear-gradient(135deg,var(--c1),var(--c2));color:#000;font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:14px 28px;border-radius:var(--r);border:none;cursor:pointer;transition:all .28s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 38px rgba(255,107,53,.38);filter:brightness(1.08);}
+.btn-o{background:transparent;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;padding:14px 28px;border-radius:var(--r);border:1px solid rgba(255,255,255,.14);cursor:pointer;transition:all .28s;display:inline-flex;align-items:center;gap:8px;text-decoration:none;}
+.btn-o:hover{border-color:var(--c1);color:var(--c1);transform:translateY(-3px);}
+
+/* stat cards */
+.h-stats{position:absolute;right:64px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:5;animation:sLeft 1s .5s both;}
+.sc{background:rgba(17,16,30,.92);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;min-width:148px;text-align:right;backdrop-filter:blur(14px);transition:all .28s;}
+.sc:hover{border-color:rgba(255,107,53,.34);transform:translateX(-4px);box-shadow:0 12px 30px rgba(0,0,0,.4);}
+.sc-n{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--c1);line-height:1;}
+.sc-l{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.18em;color:var(--sub);text-transform:uppercase;margin-top:4px;}
+
+/* scroll cue */
+.scroll-cue{position:absolute;bottom:36px;left:64px;z-index:5;display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.22em;color:var(--sub);text-transform:uppercase;animation:rUp 1s .7s both;}
+.sc-line{width:1px;height:52px;background:linear-gradient(to bottom,var(--c1),var(--c2),transparent);animation:breath 2.2s ease-in-out infinite;}
+@keyframes breath{0%,100%{opacity:.5;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.65)}}
+@keyframes rUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sLeft{from{opacity:0;transform:translate(28px,-50%)}to{opacity:1;transform:translate(0,-50%)}}
+
+/* ════════ SECTIONS ════════ */
+section{padding:104px 64px;position:relative;z-index:2;}
+.sa{background:var(--bg2);}
+.slbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--c1);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.slbl::before{content:'//';color:var(--c3);font-size:.65rem;}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5.5vw,4.6rem);letter-spacing:.03em;line-height:1;margin-bottom:60px;}
+.stitle em{font-style:normal;color:var(--c1);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ════════ ABOUT ════════ */
+.ab-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:70px;align-items:start;}
+.ab-body p{color:#6E6880;line-height:1.92;margin-bottom:18px;font-size:.97rem;}
+.ab-body p strong{color:var(--text);font-weight:600;}
+.ab-quote{margin:26px 0;padding:20px 26px;background:linear-gradient(135deg,rgba(255,107,53,.06),rgba(67,97,238,.04));border-left:3px solid var(--c1);border:1px solid rgba(255,107,53,.14);border-left-width:3px;border-radius:var(--r);font-size:.95rem;color:var(--text);line-height:1.78;font-style:italic;}
+.ab-side{display:flex;flex-direction:column;gap:9px;}
+.ab-info{background:var(--card);border:1px solid var(--border);padding:13px 17px;border-radius:5px;transition:border-color .22s,transform .22s;}
+.ab-info:hover{border-color:rgba(255,107,53,.3);transform:translateX(5px);}
+.ai-l{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.18em;color:var(--sub);text-transform:uppercase;margin-bottom:4px;}
+.ai-v{font-size:.9rem;color:var(--text);}
+.ai-v a{color:var(--c3);text-decoration:none;word-break:break-all;}
+.ai-v a:hover{text-decoration:underline;}
+
+/* ════════ EXPERIENCE ════════ */
+.exp-stack{display:flex;flex-direction:column;gap:20px;}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;transition:transform .32s,border-color .32s,box-shadow .32s;}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--c1),var(--c3));}
+.exp-card:hover{border-color:rgba(255,107,53,.3);transform:translateY(-4px);box-shadow:0 22px 56px rgba(0,0,0,.5);}
+.exp-head{padding:24px 28px 16px 34px;border-bottom:1px solid var(--border);}
+.exp-row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
+.exp-title{font-size:1.08rem;font-weight:700;}
+.exp-org{color:var(--c1);font-size:.9rem;margin-bottom:3px;}
+.exp-loc{font-family:'JetBrains Mono',monospace;font-size:.57rem;color:var(--sub);letter-spacing:.1em;}
+.exp-badge{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;color:var(--c2);background:rgba(255,210,63,.08);border:1px solid rgba(255,210,63,.2);padding:4px 11px;border-radius:3px;white-space:nowrap;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;}
+.etag{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.1em;color:var(--c3);background:rgba(6,255,165,.06);border:1px solid rgba(6,255,165,.15);padding:3px 10px;border-radius:3px;}
+.exp-body{padding:18px 28px 24px 34px;}
+.exp-pts{display:flex;flex-direction:column;gap:14px;}
+.exp-pt{display:flex;gap:12px;align-items:flex-start;}
+.exp-dot{width:5px;height:5px;border-radius:50%;background:var(--c1);margin-top:8px;flex-shrink:0;}
+.exp-pt p{font-size:.88rem;color:#6E6880;line-height:1.78;}
+.exp-pt p strong{color:var(--text);font-weight:600;}
+
+/* ════════ SKILLS ════════ */
+.sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;}
+.sk-head{font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:600;color:var(--c3);letter-spacing:.1em;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.sk-head::before{content:'';width:16px;height:1px;background:var(--c3);}
+.sk-pills{display:flex;flex-wrap:wrap;gap:9px;}
+.sk-pill{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);padding:10px 15px;border-radius:5px;transition:all .25s;cursor:default;}
+.sk-pill:hover{border-color:rgba(255,107,53,.3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.sk-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.do{background:var(--c1);} .dy{background:var(--c2);} .dg{background:var(--c3);} .db{background:var(--c4);}
+.sk-nm{font-size:.85rem;font-weight:500;}
+
+/* skill bars */
+.sk-bars{display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+.sk-bar-item{}
+.sk-bar-top{display:flex;justify-content:space-between;margin-bottom:6px;}
+.sk-bar-lbl{font-size:.85rem;font-weight:500;}
+.sk-bar-pct{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--sub);}
+.sk-bar-track{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;}
+.sk-bar-fill{height:100%;border-radius:3px;width:0%;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.bf1{background:linear-gradient(90deg,var(--c1),var(--c2));}
+.bf2{background:linear-gradient(90deg,var(--c3),var(--c4));}
+.bf3{background:linear-gradient(90deg,var(--c4),var(--c1));}
+
+/* tools grid */
+.tools-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px;margin-top:20px;}
+.tool-box{background:var(--card);border:1px solid var(--border);padding:18px 12px;border-radius:5px;text-align:center;transition:all .25s;}
+.tool-box:hover{border-color:rgba(255,107,53,.28);transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.3);}
+.tool-icon{font-size:1.4rem;margin-bottom:7px;}
+.tool-name{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:var(--sub);}
+
+/* ════════ STATS COUNTER ════════ */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:70px;}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 20px;text-align:center;transition:all .28s;position:relative;overflow:hidden;}
+.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));}
+.stat-box:hover{border-color:rgba(255,107,53,.28);transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.4);}
+.stat-box .num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--c1);line-height:1;}
+.stat-box .unit{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--c2);}
+.stat-box .lbl{font-family:'JetBrains Mono',monospace;font-size:.52rem;letter-spacing:.16em;color:var(--sub);text-transform:uppercase;margin-top:6px;}
+
+/* ════════ CERTIFICATIONS ════════ */
+.feat-award{position:relative;overflow:hidden;background:linear-gradient(140deg,#0E0C1A,#0A0818 55%,#0F0C16);border:1px solid rgba(255,107,53,.28);border-radius:10px;margin-bottom:48px;display:grid;grid-template-columns:1fr auto;box-shadow:0 0 70px rgba(255,107,53,.07),0 28px 70px rgba(0,0,0,.55);transition:all .32s;}
+.feat-award:hover{border-color:rgba(255,107,53,.55);box-shadow:0 0 90px rgba(255,210,63,.1),0 32px 80px rgba(0,0,0,.65);}
+.feat-award::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(255,107,53,.1) 0%,transparent 62%);pointer-events:none;}
+.feat-award::after{content:'CIRCLE OF EXCELLENCE';position:absolute;top:18px;right:22px;font-family:'JetBrains Mono',monospace;font-size:.46rem;letter-spacing:.3em;color:rgba(255,210,63,.38);pointer-events:none;}
+.fa-inner{padding:40px 44px;position:relative;z-index:1;}
+.fa-ey{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.24em;color:var(--c3);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.fa-ey::before{content:'';width:24px;height:1px;background:var(--c3);}
+.fa-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.08;letter-spacing:.04em;margin-bottom:10px;background:linear-gradient(120deg,var(--c1),var(--c2),#FF9A5C);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.fa-org{font-family:'JetBrains Mono',monospace;font-size:.67rem;color:var(--sub);letter-spacing:.12em;margin-bottom:20px;}
+.fa-org strong{color:var(--c3);}
+.fa-desc{font-size:.94rem;color:#6E6880;line-height:1.82;max-width:490px;}
+.fa-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;}
+.fp{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.12em;padding:5px 13px;border-radius:3px;}
+.fp-o{background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.26);color:var(--c1);}
+.fp-g{background:rgba(6,255,165,.08);border:1px solid rgba(6,255,165,.22);color:var(--c3);}
+.fa-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 46px;gap:10px;border-left:1px solid rgba(255,107,53,.14);position:relative;z-index:1;}
+.fa-trophy{font-size:4.2rem;filter:drop-shadow(0 0 22px rgba(255,210,63,.65));animation:floatUp 3.2s ease-in-out infinite;}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.fa-lbl{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.18em;color:rgba(255,210,63,.5);text-align:center;text-transform:uppercase;line-height:1.6;}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:18px;}
+.cert-card{background:var(--card);border:1px solid var(--border);padding:26px;border-radius:var(--r);transition:all .3s;position:relative;overflow:hidden;}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));}
+.cert-card:hover{border-color:rgba(255,107,53,.26);transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.45);}
+.cert-icon{font-size:1.6rem;margin-bottom:12px;}
+.cert-name{font-size:.95rem;font-weight:700;margin-bottom:5px;line-height:1.3;}
+.cert-org{color:var(--c1);font-size:.8rem;margin-bottom:6px;}
+.cert-date{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--sub);letter-spacing:.1em;}
+.acad-award{margin-top:38px;background:linear-gradient(135deg,rgba(255,107,53,.06),rgba(67,97,238,.04));border:1px solid rgba(255,107,53,.18);border-radius:var(--r);padding:26px 32px;display:flex;gap:20px;align-items:flex-start;max-width:780px;}
+.acad-icon{font-size:2.2rem;flex-shrink:0;margin-top:2px;}
+.acad-title{font-size:1rem;font-weight:700;margin-bottom:7px;line-height:1.35;}
+.acad-org{color:var(--c1);font-size:.84rem;margin-bottom:4px;}
+.acad-date{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--sub);letter-spacing:.1em;}
+
+/* ════════ PROJECTS ════════ */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(315px,1fr));gap:22px;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .32s;display:flex;flex-direction:column;}
+.proj-card:hover{transform:translateY(-7px);box-shadow:0 26px 60px rgba(0,0,0,.55);border-color:rgba(255,107,53,.22);}
+.proj-stripe{height:3px;flex-shrink:0;}
+.proj-body{padding:26px 28px;flex:1;display:flex;flex-direction:column;}
+.proj-num{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.24em;color:var(--c1);margin-bottom:12px;}
+.proj-title{font-size:1.02rem;font-weight:700;line-height:1.36;margin-bottom:8px;}
+.proj-period{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--sub);letter-spacing:.1em;margin-bottom:14px;}
+.proj-desc{font-size:.87rem;color:#6E6880;line-height:1.78;flex:1;}
+.proj-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px;}
+.ptag{font-family:'JetBrains Mono',monospace;font-size:.51rem;letter-spacing:.08em;color:var(--c4);background:rgba(67,97,238,.07);border:1px solid rgba(67,97,238,.18);padding:3px 10px;border-radius:3px;}
+
+/* ════════ EDUCATION ════════ */
+.edu-tl{display:flex;flex-direction:column;}
+.edu-item{display:flex;gap:28px;padding-bottom:44px;position:relative;}
+.edu-item::before{content:'';position:absolute;left:12px;top:26px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(255,107,53,.3),transparent);}
+.edu-item:last-child::before{display:none;}
+.edu-dot-col{flex-shrink:0;}
+.edu-dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--c1);background:var(--bg);display:flex;align-items:center;justify-content:center;}
+.edu-dot-inner{width:9px;height:9px;border-radius:50%;background:var(--c1);}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px 26px;flex:1;transition:all .25s;}
+.edu-card:hover{border-color:rgba(255,107,53,.26);transform:translateX(4px);}
+.edu-deg{font-size:1.04rem;font-weight:700;margin-bottom:5px;}
+.edu-school{color:var(--c1);font-size:.88rem;margin-bottom:12px;}
+.edu-meta{display:flex;gap:16px;flex-wrap:wrap;}
+.edu-meta span{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;color:var(--sub);display:flex;align-items:center;gap:6px;}
+.edu-meta span::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--c3);}
+
+/* ════════ CONTACT ════════ */
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:62px;}
+.con-intro{font-size:1rem;color:#6E6880;line-height:1.88;margin-bottom:30px;}
+.clinks{display:flex;flex-direction:column;gap:12px;}
+.clink{background:var(--card);border:1px solid var(--border);padding:15px 20px;border-radius:5px;display:flex;align-items:center;gap:14px;transition:all .25s;text-decoration:none;color:inherit;}
+.clink:hover{border-color:rgba(255,107,53,.28);transform:translateX(4px);}
+.cl-icon{font-size:1.2rem;flex-shrink:0;}
+.cl-lbl{font-family:'JetBrains Mono',monospace;font-size:.5rem;letter-spacing:.15em;color:var(--sub);text-transform:uppercase;margin-bottom:3px;}
+.cl-val{font-size:.9rem;color:var(--text);}
+.cl-val a{color:var(--c3);text-decoration:none;word-break:break-all;}
+.cl-val a:hover{text-decoration:underline;}
+.fg{margin-bottom:15px;}
+.flbl{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.18em;color:var(--sub);text-transform:uppercase;display:block;margin-bottom:7px;}
+.finp,.fta{width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;padding:13px 16px;border-radius:5px;outline:none;transition:border-color .22s,box-shadow .22s;resize:none;}
+.finp:focus,.fta:focus{border-color:rgba(255,107,53,.5);box-shadow:0 0 0 3px rgba(255,107,53,.08);}
+.finp::placeholder,.fta::placeholder{color:var(--sub);}
+.fta{height:120px;}
+.ferr{border-color:rgba(255,80,80,.5)!important;animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-8px)}30%{transform:translateX(7px)}45%{transform:translateX(-6px)}60%{transform:translateX(5px)}75%{transform:translateX(-4px)}}
+.btn-send{width:100%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#000;font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:15px;border:none;border-radius:5px;cursor:pointer;transition:all .28s;margin-top:4px;}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(255,107,53,.38);filter:brightness(1.06);}
+.btn-send:active{transform:translateY(0);}
+.form-ok{display:none;margin-top:14px;padding:13px 18px;background:rgba(6,255,165,.08);border:1px solid rgba(6,255,165,.22);border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--c3);text-align:center;}
+
+/* ════════ FOOTER ════════ */
+footer{padding:28px 64px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:2;}
+.ft{font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.12em;color:var(--sub);}
+.ft em{color:var(--c1);font-style:normal;}
+
+/* ════════ BACK TO TOP ════════ */
+#btt{position:fixed;bottom:30px;right:30px;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:400;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:0 6px 20px rgba(255,107,53,.4);}
+#btt.show{opacity:1;pointer-events:all;}
+#btt:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(255,107,53,.5);}
+#btt svg{width:18px;height:18px;fill:none;stroke:#000;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ════════ RESPONSIVE ════════ */
+@media(max-width:1100px){
+  nav,section,footer{padding-left:32px;padding-right:32px;}
+  nav.stuck{padding-left:32px;padding-right:32px;}
+  #home{padding:120px 32px 80px;}
+  .h-stats,.dring,.h-orb,.h-panel,#tbadge{display:none;}
+  .ab-grid,.sk-grid,.con-grid{grid-template-columns:1fr;gap:36px;}
+  .feat-award{grid-template-columns:1fr;}
+  .fa-badge{border-left:none;border-top:1px solid rgba(255,107,53,.12);flex-direction:row;padding:22px 32px;}
+  .feat-award::after{display:none;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:720px){
+  nav{padding:16px 20px!important;}
+  section{padding:68px 20px;}
+  footer{padding:22px 20px;}
+  #home{padding:96px 20px 60px;}
+  .nav-links,.nav-badge{display:none;}
+  .hbg{display:flex;}
+  #btt{bottom:18px;right:18px;}
+  .h-ctas{flex-direction:column;}
+  .btn-p,.btn-o{justify-content:center;width:100%;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .proj-grid{grid-template-columns:1fr;}
+  .certs-grid{grid-template-columns:1fr;}
+  .acad-award{flex-direction:column;gap:12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- scroll progress -->
+<div id="progress-bar"></div>
+
+<!-- custom cursor -->
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- mobile overlay -->
+<div id="mob">
+  <button id="mob-x">&#10005;</button>
+  <a href="#about" class="mob-link">About</a>
+  <a href="#experience" class="mob-link">Experience</a>
+  <a href="#skills" class="mob-link">Skills</a>
+  <a href="#certifications" class="mob-link">Certs</a>
+  <a href="#projects" class="mob-link">Projects</a>
+  <a href="#education" class="mob-link">Education</a>
+  <a href="#contact" class="mob-link">Contact</a>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="mainNav">
+  <a href="#home" class="logo">MA<span>Solar Design Engineer</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-badge"><span class="nb-dot"></span>Open to Opportunities</div>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="home">
+  <div class="h-bg"></div>
+  <div class="h-dots"></div>
+  <div class="dring dr1"></div>
+  <div class="dring dr2"></div>
+  <div class="dring dr3"></div>
+
+  <!-- Sun orb with rays -->
+  <div class="h-orb">
+    <div class="h-orb-core"></div>
+    <div class="h-ray" style="transform:rotate(0deg)"></div>
+    <div class="h-ray" style="transform:rotate(30deg)"></div>
+    <div class="h-ray" style="transform:rotate(60deg)"></div>
+    <div class="h-ray" style="transform:rotate(90deg)"></div>
+    <div class="h-ray" style="transform:rotate(120deg)"></div>
+    <div class="h-ray" style="transform:rotate(150deg)"></div>
+    <div class="h-ray" style="transform:rotate(180deg)"></div>
+    <div class="h-ray" style="transform:rotate(210deg)"></div>
+    <div class="h-ray" style="transform:rotate(240deg)"></div>
+    <div class="h-ray" style="transform:rotate(270deg)"></div>
+    <div class="h-ray" style="transform:rotate(300deg)"></div>
+    <div class="h-ray" style="transform:rotate(330deg)"></div>
+  </div>
+
+  <!-- Solar panel decoration -->
+  <div class="h-panel">
+    <div class="h-panel-inner" id="panelGrid">
+      <div class="pc on"></div><div class="pc"></div><div class="pc on"></div><div class="pc on"></div><div class="pc"></div><div class="pc on"></div>
+      <div class="pc"></div><div class="pc on"></div><div class="pc on"></div><div class="pc"></div><div class="pc on"></div><div class="pc"></div>
+      <div class="pc on"></div><div class="pc"></div><div class="pc"></div><div class="pc on"></div><div class="pc on"></div><div class="pc on"></div>
+      <div class="pc"></div><div class="pc on"></div><div class="pc on"></div><div class="pc on"></div><div class="pc"></div><div class="pc on"></div>
+    </div>
+  </div>
+
+  <!-- Live time badge -->
+  <div id="tbadge"><span class="tb-dot"></span><span id="tbtime">--:-- --</span>&nbsp;&#183;&nbsp;Bengaluru, IN</div>
+
+  <!-- Hero text -->
+  <div class="h-content">
+    <div class="h-eyebrow">Solar Design Engineer</div>
+    <h1 class="h-name">
+      <span class="ln1">Mahamad</span>
+      <span class="ln2">Abdulah</span>
+    </h1>
+    <div class="h-role">Engineer Design &#8212; Solar EPC</div>
+    <div class="h-sub">&#64; <strong>Panasonic India (Anchor)</strong> &nbsp;&#183;&nbsp; <span id="typer"></span></div>
+    <div class="h-chips">
+      <span class="chip co">AutoCAD</span>
+      <span class="chip cy">PVsyst</span>
+      <span class="chip cg">SolarLabs / Arka 360</span>
+      <span class="chip cb">System Sizing</span>
+      <span class="chip co">ISO 9001:2015</span>
+      <span class="chip cy">T&#220;V India</span>
+      <span class="chip cg">IEC / IS / MNRE</span>
+    </div>
+    <p class="h-bio">Electrical &amp; Electronics Engineer specialising in Solar EPC design &#8212; from system sizing and SLD preparation to energy yield analysis and vendor coordination. Passionate about clean, renewable energy and precision engineering.</p>
+    <div class="h-ctas">
+      <button class="btn-p" id="btnHire">&#9728; Hire Me</button>
+      <a href="#experience" class="btn-o">View Experience &#8594;</a>
+    </div>
+  </div>
+
+  <!-- Stat cards -->
+  <div class="h-stats">
+    <div class="sc"><div class="sc-n">1.5+</div><div class="sc-l">Years at<br>Panasonic</div></div>
+    <div class="sc"><div class="sc-n">3</div><div class="sc-l">Major<br>Projects</div></div>
+    <div class="sc"><div class="sc-n">&#127942;</div><div class="sc-l">Circle of<br>Excellence</div></div>
+  </div>
+
+  <div class="scroll-cue"><div class="sc-line"></div>Scroll</div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="sa">
+  <div class="slbl">01 &#8212; About</div>
+  <h2 class="stitle">Who I <em>Am</em></h2>
+  <div class="ab-grid">
+    <div class="ab-body reveal">
+      <p>I&#8217;m <strong>Mahamad Abdulah</strong>, a Solar Design Engineer currently working with <strong>Anchor by Panasonic India</strong> in Bengaluru. Originally from Birgunj, Nepal, I hold a Bachelor of Engineering in <strong>Electrical &amp; Electronics Engineering</strong> from Cambridge Institute of Technology, Bangalore (CGPA&#58; 7.5/10).</p>
+      <p>My core expertise lies in <strong>Solar PV system design</strong> &#8212; performing system sizing from load analysis, selecting modules and inverters, carrying out electrical calculations (string sizing, voltage drop, cable sizing), and reviewing SLDs and BOMs. I also provide design training to Graduate Engineer Trainees on rooftop and ground-mount PV workflows.</p>
+      <p>I am <strong>T&#220;V India certified</strong> and trained in <strong>ISO 9001:2015 internal auditing</strong>. Proficient in <strong>AutoCAD, PVsyst, and SolarLabs (Arka 360)</strong>, and currently expanding my skills in <strong>SketchUp 3D</strong> for advanced visualisation of solar installations.</p>
+      <div class="ab-quote">&#8220;Passionate about clean energy &#8212; I stay updated with emerging solar technologies, MNRE guidelines, and industry best practices to drive innovation in Solar EPC projects.&#8221;</div>
+      <button class="btn-o" id="btnResume" style="margin-top:14px;">&#11015; Download Resume</button>
+    </div>
+    <div class="ab-side reveal" style="transition-delay:.14s">
+      <div class="ab-info"><div class="ai-l">Current Role</div><div class="ai-v">Engineer Design &#8212; Solar EPC</div></div>
+      <div class="ab-info"><div class="ai-l">Company</div><div class="ai-v">Panasonic India (Anchor)</div></div>
+      <div class="ab-info"><div class="ai-l">Location</div><div class="ai-v">Bengaluru, Karnataka, India</div></div>
+      <div class="ab-info"><div class="ai-l">Origin</div><div class="ai-v">Birgunj, Nepal</div></div>
+      <div class="ab-info"><div class="ai-l">Degree</div><div class="ai-v">B.E. &#8212; Electrical &amp; Electronics Eng.</div></div>
+      <div class="ab-info"><div class="ai-l">CGPA</div><div class="ai-v">7.5 / 10</div></div>
+      <div class="ab-info"><div class="ai-l">Email</div><div class="ai-v"><a href="mailto:mahamad.abdulah.2025@gmail.com">mahamad.abdulah.2025@gmail.com</a></div></div>
+      <div class="ab-info"><div class="ai-l">Certification</div><div class="ai-v">T&#220;V India &#8212; QMS Auditor (ISO 9001:2015)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience">
+  <div class="slbl">02 &#8212; Career</div>
+  <h2 class="stitle">Work <em>Experience</em></h2>
+
+  <!-- Stats row -->
+  <div class="stats-row reveal">
+    <div class="stat-box"><div><span class="num" data-target="1">0</span><span class="unit">+</span></div><div class="lbl">Years Experience</div></div>
+    <div class="stat-box"><div><span class="num" data-target="50">0</span><span class="unit">+</span></div><div class="lbl">Projects Designed</div></div>
+    <div class="stat-box"><div><span class="num" data-target="100">0</span><span class="unit">%</span></div><div class="lbl">Quality Compliance</div></div>
+    <div class="stat-box"><div><span class="num" data-target="3">0</span><span class="unit"></span></div><div class="lbl">Major Innovations</div></div>
+  </div>
+
+  <div class="exp-stack">
+    <div class="exp-card reveal">
+      <div class="exp-head">
+        <div class="exp-row">
+          <div>
+            <div class="exp-title">Engineer Design &#8212; Solar EPC</div>
+            <div class="exp-org">Panasonic India (Anchor by Panasonic)</div>
+            <div class="exp-loc">Bengaluru, Karnataka</div>
+          </div>
+          <div class="exp-badge">Sep 2023 &#8211; Present</div>
+        </div>
+        <div class="exp-tags">
+          <span class="etag">AutoCAD</span>
+          <span class="etag">PVsyst</span>
+          <span class="etag">SolarLabs (Arka 360)</span>
+          <span class="etag">System Sizing</span>
+          <span class="etag">ISO 9001:2015</span>
+          <span class="etag">T&#220;V India</span>
+          <span class="etag">MS Excel</span>
+          <span class="etag">String Design</span>
+        </div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-pts">
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Solar PV Design &amp; Engineering:</strong> Performed system sizing using site data and load analysis. Experienced in selecting suitable modules, inverters, and protection devices. Carried out electrical calculations including string sizing, voltage drop, cable sizing, and inverter capacity. Reviewed single-line diagrams (SLDs) and bills of materials (BOMs). Provided design training to Graduate Engineer Trainees (GETs) on rooftop and ground-mounted PV system workflows.</p></div>
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Vendor &amp; Supplier Coordination:</strong> Trained in identifying and shortlisting reputed vendors for modules, inverters, structures, and electrical components. Reviewed quotations and technical datasheets for alignment with project requirements. Supported vendor negotiations to ensure project specification compliance.</p></div>
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Industry Standards &amp; Compliance:</strong> Familiar with IEC, IS, NBC, and MNRE guidelines. Applied IS 3043, IS 732, and IEC 60364 safety standards for compliance in rooftop and utility-scale solar designs.</p></div>
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Quality Management &amp; Auditing:</strong> Completed ISO 9001:2015 internal audit training and is <strong>certified by T&#220;V India</strong> for QMS and auditing competency &#8212; prioritising quality management and process control across all projects.</p></div>
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Project Management &amp; Training:</strong> Gained foundational knowledge of budgeting, cost estimation, and project scheduling. Coordinated between design, procurement, and execution teams. Software stack: <strong>AutoCAD, PVsyst, SolarLabs, MS Excel</strong>; currently learning SketchUp 3D for site modelling.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:.12s">
+      <div class="exp-head">
+        <div class="exp-row">
+          <div>
+            <div class="exp-title">Engineer Design Trainee &#8212; Solar EPC</div>
+            <div class="exp-org">Panasonic India (Anchor by Panasonic)</div>
+            <div class="exp-loc">Bengaluru, Karnataka</div>
+          </div>
+          <div class="exp-badge">Trainee Period</div>
+        </div>
+        <div class="exp-tags">
+          <span class="etag">Site Assessment</span>
+          <span class="etag">Layout Planning</span>
+          <span class="etag">PVsyst</span>
+          <span class="etag">Structural Analysis</span>
+          <span class="etag">AutoCAD</span>
+          <span class="etag">SolarLabs</span>
+        </div>
+      </div>
+      <div class="exp-body">
+        <div class="exp-pts">
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Site Assessments &amp; Planning:</strong> Analysed land orientation, slope, and potential shading to strategically plan solar panel arrangements that maximise energy output for rooftop and ground-mounted installations.</p></div>
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Inverter &amp; Electrical Design:</strong> Optimised inverter positioning and wiring layouts using electrical design principles to achieve efficient energy production and minimise losses.</p></div>
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Structural Integrity:</strong> Designed robust support structures for ground-mounted systems and evaluated roof load-bearing capacity for rooftop installations, prioritising safety and regulatory compliance.</p></div>
+          <div class="exp-pt"><div class="exp-dot"></div><p><strong>Software Proficiency:</strong> Used AutoCAD for precise technical drawings, PVsyst for solar system modelling and performance simulations, and SolarLabs for comprehensive design and analysis workflows.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills" class="sa">
+  <div class="slbl">03 &#8212; Expertise</div>
+  <h2 class="stitle">Technical <em>Skills</em></h2>
+  <div class="sk-grid">
+    <div class="reveal">
+      <div class="sk-head">Solar &amp; Electrical Engineering</div>
+      <div class="sk-pills">
+        <div class="sk-pill"><span class="sk-dot do"></span><span class="sk-nm">AutoCAD (Layouts &amp; SLDs)</span></div>
+        <div class="sk-pill"><span class="sk-dot do"></span><span class="sk-nm">PVsyst &#8212; Energy Yield Analysis</span></div>
+        <div class="sk-pill"><span class="sk-dot do"></span><span class="sk-nm">SolarLabs / Arka 360</span></div>
+        <div class="sk-pill"><span class="sk-dot dg"></span><span class="sk-nm">System Sizing &amp; String Design</span></div>
+        <div class="sk-pill"><span class="sk-dot dg"></span><span class="sk-nm">Electrical Calculations</span></div>
+        <div class="sk-pill"><span class="sk-dot dg"></span><span class="sk-nm">Voltage Drop &amp; Cable Sizing</span></div>
+        <div class="sk-pill"><span class="sk-dot dg"></span><span class="sk-nm">BOM / BOQ Preparation</span></div>
+        <div class="sk-pill"><span class="sk-dot do"></span><span class="sk-nm">IEC / IS / MNRE Standards</span></div>
+        <div class="sk-pill"><span class="sk-dot do"></span><span class="sk-nm">MATLAB</span></div>
+        <div class="sk-pill"><span class="sk-dot dy"></span><span class="sk-nm">Ground-Mount Solar Design</span></div>
+        <div class="sk-pill"><span class="sk-dot dy"></span><span class="sk-nm">Rooftop PV Design</span></div>
+        <div class="sk-pill"><span class="sk-dot do"></span><span class="sk-nm">Earthing &amp; Cable Tray Layout</span></div>
+      </div>
+
+      <div class="sk-head" style="margin-top:34px">Proficiency Levels</div>
+      <div class="sk-bars" id="skillBars">
+        <div class="sk-bar-item"><div class="sk-bar-top"><span class="sk-bar-lbl">AutoCAD</span><span class="sk-bar-pct">90%</span></div><div class="sk-bar-track"><div class="sk-bar-fill bf1" data-w="90"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span class="sk-bar-lbl">PVsyst</span><span class="sk-bar-pct">85%</span></div><div class="sk-bar-track"><div class="sk-bar-fill bf2" data-w="85"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span class="sk-bar-lbl">SolarLabs / Arka 360</span><span class="sk-bar-pct">88%</span></div><div class="sk-bar-track"><div class="sk-bar-fill bf1" data-w="88"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span class="sk-bar-lbl">System Sizing &amp; String Design</span><span class="sk-bar-pct">92%</span></div><div class="sk-bar-track"><div class="sk-bar-fill bf3" data-w="92"></div></div></div>
+        <div class="sk-bar-item"><div class="sk-bar-top"><span class="sk-bar-lbl">MS Excel</span><span class="sk-bar-pct">87%</span></div><div class="sk-bar-track"><div class="sk-bar-fill bf2" data-w="87"></div></div></div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:.14s">
+      <div class="sk-head">Software &amp; Development</div>
+      <div class="sk-pills">
+        <div class="sk-pill"><span class="sk-dot db"></span><span class="sk-nm">MS Excel (Reports &amp; Calculations)</span></div>
+        <div class="sk-pill"><span class="sk-dot db"></span><span class="sk-nm">HTML</span></div>
+        <div class="sk-pill"><span class="sk-dot db"></span><span class="sk-nm">CSS</span></div>
+        <div class="sk-pill"><span class="sk-dot db"></span><span class="sk-nm">JavaScript</span></div>
+        <div class="sk-pill"><span class="sk-dot db"></span><span class="sk-nm">Java</span></div>
+        <div class="sk-pill"><span class="sk-dot db"></span><span class="sk-nm">MySQL</span></div>
+        <div class="sk-pill"><span class="sk-dot dg"></span><span class="sk-nm">SketchUp 3D (Learning)</span></div>
+      </div>
+
+      <div class="sk-head" style="margin-top:34px">Quality &amp; Management Tools</div>
+      <div class="tools-g">
+        <div class="tool-box"><div class="tool-icon">&#127942;</div><div class="tool-name">ISO 9001:2015</div></div>
+        <div class="tool-box"><div class="tool-icon">&#10003;</div><div class="tool-name">T&#220;V India QMS</div></div>
+        <div class="tool-box"><div class="tool-icon">&#128203;</div><div class="tool-name">Internal Audit</div></div>
+        <div class="tool-box"><div class="tool-icon">&#129309;</div><div class="tool-name">Vendor Mgmt</div></div>
+        <div class="tool-box"><div class="tool-icon">&#128208;</div><div class="tool-name">Site Planning</div></div>
+        <div class="tool-box"><div class="tool-icon">&#9728;</div><div class="tool-name">Solar EPC</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CERTIFICATIONS ══ -->
+<section id="certifications">
+  <div class="slbl">04 &#8212; Credentials</div>
+  <h2 class="stitle">Certifications <em>&amp; Awards</em></h2>
+
+  <div class="feat-award reveal">
+    <div class="fa-inner">
+      <div class="fa-ey">Anchor by Panasonic &#183; Q4 FY 2024&#8211;2025</div>
+      <div class="fa-title">Circle of Excellence Award</div>
+      <div class="fa-org">&#64; <strong>Panasonic India</strong> &nbsp;&#183;&nbsp; Engineer Design &#8212; Solar EPC</div>
+      <p class="fa-desc">Honoured to receive the Anchor by Panasonic Circle of Excellence Award for outstanding performance in Q4 of FY 2024&#8211;2025. This award reflects the power of dedication, innovation, and teamwork &#8212; a milestone made possible through the unwavering support of incredible colleagues and mentors who believed in our shared vision.</p>
+      <div class="fa-pills">
+        <span class="fp fp-o">Outstanding Performance</span>
+        <span class="fp fp-g">Innovation &amp; Teamwork</span>
+        <span class="fp fp-o">Solar EPC</span>
+        <span class="fp fp-g">Q4 FY 2024&#8211;2025</span>
+      </div>
+    </div>
+    <div class="fa-badge">
+      <div class="fa-trophy">&#127942;</div>
+      <div class="fa-lbl">Anchor by<br>Panasonic<br>Award</div>
+    </div>
+  </div>
+
+  <div class="certs-grid reveal">
+    <div class="cert-card">
+      <div class="cert-icon">&#9749;</div>
+      <div class="cert-name">Java Full Stack Internship</div>
+      <div class="cert-org">KodNest</div>
+      <div class="cert-date">Apr 2023 &#8211; Present</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">&#9889;</div>
+      <div class="cert-name">Internship &#8212; Power Transmission</div>
+      <div class="cert-org">Karnataka Power Transmission Corporation Limited (KPTCL)</div>
+      <div class="cert-date">Oct 2022 &#8211; Present</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">&#128663;</div>
+      <div class="cert-name">Diploma in Engineering Fundamentals of Electric Vehicles</div>
+      <div class="cert-org">Alison &#8211; Empower Yourself</div>
+      <div class="cert-date">Nov 2021 &#8211; Present</div>
+    </div>
+  </div>
+
+  <div class="acad-award reveal">
+    <div class="acad-icon">&#129351;</div>
+    <div>
+      <div class="acad-title">Best Overall Excellence Paper &nbsp;&#183;&nbsp; Best Paper with Social Relevance &nbsp;&#183;&nbsp; Best Paper with Technical Relevance</div>
+      <div class="acad-org">Cambridge Institute of Technology</div>
+      <div class="acad-date">April 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects" class="sa">
+  <div class="slbl">05 &#8212; Work</div>
+  <h2 class="stitle">Featured <em>Projects</em></h2>
+  <div class="proj-grid">
+    <div class="proj-card reveal">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#FF6B35,#FFD23F)"></div>
+      <div class="proj-body">
+        <div class="proj-num">PROJECT &#8212; 01</div>
+        <div class="proj-title">AI-Based Unmanned Vehicle for Surveillance &amp; Protection</div>
+        <div class="proj-period">Aug 2022 &#8211; Present</div>
+        <p class="proj-desc">Designed and developed an autonomous unmanned ground vehicle for surveillance, equipped with AI algorithms, 360&#176; cameras, LIDAR, radar, and thermal imaging sensors. The system detects and tracks threats in real time, operating autonomously or via remote control across military, border security, and public safety settings.</p>
+        <div class="proj-tags">
+          <span class="ptag">AI / ML</span>
+          <span class="ptag">Robotics</span>
+          <span class="ptag">360&#176; Camera</span>
+          <span class="ptag">Sensor Fusion</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card reveal" style="transition-delay:.1s">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#06FFA5,#4361EE)"></div>
+      <div class="proj-body">
+        <div class="proj-num">PROJECT &#8212; 02</div>
+        <div class="proj-title">Electricity Regeneration Using a Fan and PMSG</div>
+        <div class="proj-period">Jan 2022 &#8211; May 2022</div>
+        <p class="proj-desc">Designed and built a system coupling a fan with a Permanent Magnet Synchronous Generator (PMSG) to regenerate electricity through electromagnetic induction. The setup uses a rectifier circuit and battery bank, demonstrating practical renewable energy harvesting applicable to wind and hydroelectric systems.</p>
+        <div class="proj-tags">
+          <span class="ptag">PMSG</span>
+          <span class="ptag">Renewable Energy</span>
+          <span class="ptag">Electrical Eng.</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-card reveal" style="transition-delay:.2s">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#4361EE,#FF6B35)"></div>
+      <div class="proj-body">
+        <div class="proj-num">PROJECT &#8212; 03</div>
+        <div class="proj-title">Hybrid Power Plant Generation System</div>
+        <div class="proj-period">Jan 2020 &#8211; Sep 2020</div>
+        <p class="proj-desc">Designed a hybrid power plant combining solar, wind, and diesel generation technologies. The automated system intelligently switches between energy sources based on availability and demand, supported by battery storage for uninterrupted supply &#8212; reducing carbon emissions and dependence on non-renewable sources.</p>
+        <div class="proj-tags">
+          <span class="ptag">Solar</span>
+          <span class="ptag">Wind</span>
+          <span class="ptag">Power Systems</span>
+          <span class="ptag">Automation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ══ -->
+<section id="education">
+  <div class="slbl">06 &#8212; Background</div>
+  <h2 class="stitle">My <em>Education</em></h2>
+  <div class="edu-tl">
+    <div class="edu-item reveal">
+      <div class="edu-dot-col"><div class="edu-dot"><div class="edu-dot-inner"></div></div></div>
+      <div class="edu-card">
+        <div class="edu-deg">B.E. in Electrical &amp; Electronics Engineering</div>
+        <div class="edu-school">Cambridge Institute of Technology, Bangalore</div>
+        <div class="edu-meta"><span>Jan 2020 &#8211; Dec 2023</span><span>CGPA: 7.5 / 10</span></div>
+      </div>
+    </div>
+    <div class="edu-item reveal" style="transition-delay:.12s">
+      <div class="edu-dot-col"><div class="edu-dot"><div class="edu-dot-inner"></div></div></div>
+      <div class="edu-card">
+        <div class="edu-deg">Diploma in Electrical &amp; Electronics Engineering</div>
+        <div class="edu-school">Gnana Vikas Polytechnic, Chitradurga</div>
+        <div class="edu-meta"><span>Jan 2017 &#8211; Dec 2020</span><span>Score: 79%</span></div>
+      </div>
+    </div>
+    <div class="edu-item reveal" style="transition-delay:.24s">
+      <div class="edu-dot-col"><div class="edu-dot"><div class="edu-dot-inner"></div></div></div>
+      <div class="edu-card">
+        <div class="edu-deg">SSLC (Secondary Education)</div>
+        <div class="edu-school">Uchcha Maadhyamik Vidyaalay, Dokaila Bahuari</div>
+        <div class="edu-meta"><span>2017</span><span>Score: 61%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="sa">
+  <div class="slbl">07 &#8212; Connect</div>
+  <h2 class="stitle">Get In <em>Touch</em></h2>
+  <div class="con-grid">
+    <div class="reveal">
+      <p class="con-intro">Open to discussing Solar EPC opportunities, clean energy collaborations, or any exciting engineering project. Feel free to reach out &#8212; I&#8217;d love to connect!</p>
+      <div class="clinks">
+        <div class="clink"><div class="cl-icon">&#128205;</div><div><div class="cl-lbl">Location</div><div class="cl-val">Bengaluru, Karnataka, India</div></div></div>
+        <div class="clink"><div class="cl-icon">&#9993;</div><div><div class="cl-lbl">Email</div><div class="cl-val"><a href="mailto:mahamad.abdulah.2025@gmail.com">mahamad.abdulah.2025@gmail.com</a></div></div></div>
+        <div class="clink"><div class="cl-icon">&#128279;</div><div><div class="cl-lbl">LinkedIn</div><div class="cl-val"><a href="https://linkedin.com/in/mahamad-abdulah2025" target="_blank" rel="noopener">linkedin.com/in/mahamad-abdulah2025</a></div></div></div>
+        <div class="clink"><div class="cl-icon">&#128187;</div><div><div class="cl-lbl">Portfolio</div><div class="cl-val"><a href="https://mahamadabdulah2025.github.io/portfolio" target="_blank" rel="noopener">mahamadabdulah2025.github.io/portfolio</a></div></div></div>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:.14s">
+      <div class="fg"><label class="flbl" for="fname">Your Name *</label><input class="finp" id="fname" type="text" placeholder="John Doe" autocomplete="name"/></div>
+      <div class="fg"><label class="flbl" for="femail">Email Address *</label><input class="finp" id="femail" type="email" placeholder="john@example.com" autocomplete="email"/></div>
+      <div class="fg"><label class="flbl" for="fsubject">Subject</label><input class="finp" id="fsubject" type="text" placeholder="Solar EPC Project / Job Opportunity..."/></div>
+      <div class="fg"><label class="flbl" for="fmsg">Message *</label><textarea class="fta" id="fmsg" placeholder="Tell me about your project or opportunity..."></textarea></div>
+      <button class="btn-send" id="btnSend">&#9993; Send Message &#8594;</button>
+      <div class="form-ok" id="formOk">&#10003; Gmail is opening &#8212; your message is ready to send!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="ft">&#169; 2025 <em>Mahamad Abdulah</em>. All rights reserved.</div>
+  <div class="ft">Solar Design Engineer &#183; Bengaluru &#183; Built with <em>&#9829;</em> &amp; &#9728;</div>
+</footer>
+
+<!-- back to top -->
+<button id="btt" title="Back to top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   MAHAMAD ABDULAH PORTFOLIO — ALL JAVASCRIPT
+   13 Features, fully working, zero errors
+══════════════════════════════════════════════════════ */
+
+/* ── 1. CUSTOM CURSOR ── */
+const curEl=document.getElementById('cur');
+const curR=document.getElementById('cur-ring');
+let mx=0,my=0,lx=0,ly=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  curEl.style.left=mx+'px'; curEl.style.top=my+'px';
+});
+(function raf(){
+  lx+=(mx-lx)*.13; ly+=(my-ly)*.13;
+  curR.style.left=lx+'px'; curR.style.top=ly+'px';
+  requestAnimationFrame(raf);
+})();
+document.querySelectorAll('a,button,.exp-card,.proj-card,.cert-card,.edu-card,.tool-box,.sk-pill,.sc,.ab-info,.clink,.stat-box').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+});
+
+/* ── 2. SCROLL PROGRESS BAR ── */
+const pb=document.getElementById('progress-bar');
+window.addEventListener('scroll',()=>{
+  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  pb.style.width=Math.min(pct,100)+'%';
+},{passive:true});
+
+/* ── 3. STICKY NAV ── */
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('stuck',window.scrollY>50);
+},{passive:true});
+
+/* ── 4. HAMBURGER MOBILE MENU ── */
+const hbg=document.getElementById('hbg');
+const mob=document.getElementById('mob');
+const mobX=document.getElementById('mob-x');
+function closeMob(){hbg.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}
+function openMob(){hbg.classList.add('open');mob.classList.add('open');document.body.style.overflow='hidden';}
+hbg.addEventListener('click',()=>mob.classList.contains('open')?closeMob():openMob());
+mobX.addEventListener('click',closeMob);
+document.querySelectorAll('.mob-link').forEach(a=>a.addEventListener('click',closeMob));
+
+/* ── 5. SMOOTH SCROLL (all anchor links) ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+/* ── 6. SCROLL REVEAL ── */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+/* ── 7. ACTIVE NAV HIGHLIGHT ── */
+const secEls=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secEls.forEach(s=>{if(window.scrollY>=s.offsetTop-160)cur=s.id;});
+  navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+/* ── 8. LIVE CLOCK (Bengaluru IST) ── */
+function tick(){
+  const opts={timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit',hour12:true};
+  const t=new Intl.DateTimeFormat('en-IN',opts).format(new Date());
+  const el=document.getElementById('tbtime');
+  if(el)el.textContent=t;
+}
+tick();setInterval(tick,1000);
+
+/* ── 9. TYPEWRITER ── */
+const words=['Bengaluru, Karnataka','Solar EPC Expert','Clean Energy Pro','EEE Graduate','TÜV India Certified','AutoCAD & PVsyst Pro'];
+let wi=0,ci=0,del=false;
+const tyEl=document.getElementById('typer');
+function typeLoop(){
+  if(!tyEl)return;
+  const w=words[wi];
+  del?(tyEl.textContent=w.slice(0,--ci)):(tyEl.textContent=w.slice(0,++ci));
+  if(!del&&ci===w.length){del=true;setTimeout(typeLoop,1900);return;}
+  if(del&&ci===0){del=false;wi=(wi+1)%words.length;}
+  setTimeout(typeLoop,del?55:95);
+}
+setTimeout(typeLoop,1400);
+
+/* ── 10. PANEL CELL ANIMATION ── */
+const pcs=document.querySelectorAll('.pc');
+setInterval(()=>pcs.forEach(c=>c.classList.toggle('on',Math.random()>.45)),1350);
+
+/* ── 11. COUNTER ANIMATION ── */
+function animateCounters(){
+  document.querySelectorAll('.num[data-target]').forEach(el=>{
+    const target=+el.dataset.target;
+    const dur=1800;
+    const step=dur/60;
+    let cur=0;
+    const inc=target/60;
+    const t=setInterval(()=>{
+      cur=Math.min(cur+inc,target);
+      el.textContent=Math.floor(cur);
+      if(cur>=target)clearInterval(t);
+    },step);
+  });
+}
+const statsObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCounters();statsObs.disconnect();}});
+},{threshold:0.3});
+const statsRow=document.querySelector('.stats-row');
+if(statsRow)statsObs.observe(statsRow);
+
+/* ── 12. SKILL BAR ANIMATION ── */
+const barObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.sk-bar-fill').forEach(b=>{
+        b.style.width=b.dataset.w+'%';
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+const barsEl=document.getElementById('skillBars');
+if(barsEl)barObs.observe(barsEl);
+
+/* ── 13. BACK TO TOP ── */
+const btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>400),{passive:true});
+btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ── 14. HIRE ME → Gmail ── */
+document.getElementById('btnHire').addEventListener('click',()=>{
+  const to='mahamad.abdulah.2025@gmail.com';
+  const sub=encodeURIComponent('Hiring Opportunity — Solar Design Engineer | Mahamad Abdulah');
+  const bod=encodeURIComponent(
+    'Dear Mahamad,\n\n'+
+    'I came across your portfolio and am truly impressed by your expertise in Solar EPC design, '+
+    'your outstanding work at Panasonic India, and your Circle of Excellence Award.\n\n'+
+    'We would love to explore a potential opportunity aligned with your skills in PV system design, '+
+    'AutoCAD, PVsyst, energy yield simulations, and ISO 9001:2015 quality management.\n\n'+
+    'Please let us know your availability for a call or meeting.\n\n'+
+    'Warm regards,\n[Your Name]\n[Company]\n[Phone / Contact]'
+  );
+  window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su='+sub+'&body='+bod,'_blank');
+});
+
+/* ── 15. RESUME BUTTON → Gmail ── */
+document.getElementById('btnResume').addEventListener('click',()=>{
+  const to='mahamad.abdulah.2025@gmail.com';
+  const sub=encodeURIComponent('Resume Request — Mahamad Abdulah');
+  const bod=encodeURIComponent('Hi Mahamad,\n\nCould you please share your latest resume?\n\nThank you!');
+  window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su='+sub+'&body='+bod,'_blank');
+});
+
+/* ── 16. CONTACT FORM → Gmail with validation ── */
+function markErr(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.classList.add('ferr');
+  el.focus();
+  setTimeout(()=>el.classList.remove('ferr'),900);
+}
+document.getElementById('btnSend').addEventListener('click',()=>{
+  const name=document.getElementById('fname').value.trim();
+  const email=document.getElementById('femail').value.trim();
+  const subj=document.getElementById('fsubject').value.trim();
+  const msg=document.getElementById('fmsg').value.trim();
+  if(!name){markErr('fname');return;}
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){markErr('femail');return;}
+  if(!msg){markErr('fmsg');return;}
+  const to='mahamad.abdulah.2025@gmail.com';
+  const sub=encodeURIComponent(subj||'Portfolio Enquiry — Mahamad Abdulah');
+  const bod=encodeURIComponent('Hi Mahamad,\n\nName: '+name+'\nEmail: '+email+'\n\n'+msg+'\n\n— Sent via portfolio');
+  window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su='+sub+'&body='+bod,'_blank');
+  const ok=document.getElementById('formOk');
+  ok.style.display='block';
+  setTimeout(()=>ok.style.display='none',6000);
+  ['fname','femail','fsubject','fmsg'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.value='';
+  });
+});
+</script>
+</body>
+</html>
